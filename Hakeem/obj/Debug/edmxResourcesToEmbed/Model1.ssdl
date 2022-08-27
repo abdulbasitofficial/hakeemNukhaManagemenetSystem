@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hakeemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="account_id" />
+    </Key>
+    <Property Name="account_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="account_name" Type="varchar(max)" />
+    <Property Name="account_email" Type="varchar(max)" />
+    <Property Name="account_passeord" Type="varchar(max)" />
+    <Property Name="account_type" Type="varchar(max)" />
+    <Property Name="account_insertion" Type="datetime" />
+    <Property Name="axxount_gender" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="disease">
+    <Key>
+      <PropertyRef Name="disease_id" />
+    </Key>
+    <Property Name="disease_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="disease_name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="favourite_hakeem">
+    <Key>
+      <PropertyRef Name="favourite_id" />
+    </Key>
+    <Property Name="favourite_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="account_id" Type="int" />
+    <Property Name="hakeem_id" Type="int" />
+    <Property Name="stars" Type="int" />
+  </EntityType>
+  <EntityType Name="favourite_nuskha">
+    <Key>
+      <PropertyRef Name="favourite_id" />
+    </Key>
+    <Property Name="favourite_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="account_id" Type="int" />
+    <Property Name="nuskha_id" Type="int" />
+    <Property Name="stars" Type="int" />
+  </EntityType>
+  <EntityType Name="nuskha">
+    <Key>
+      <PropertyRef Name="nuskha_id" />
+    </Key>
+    <Property Name="nuskha_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nuskha_name" Type="varchar(max)" />
+    <Property Name="nuskha_description" Type="varchar(max)" />
+    <Property Name="nuskha_image" Type="varbinary(max)" />
+    <Property Name="nuskha_imgtype" Type="varchar(max)" />
+    <Property Name="nuskha_ingredients" Type="varchar(max)" />
+    <Property Name="account_id" Type="int" />
+    <Property Name="disease_id" Type="int" />
+    <Property Name="symptoms_id" Type="int" />
+    <Property Name="symptoms" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="nuskha_comment">
+    <Key>
+      <PropertyRef Name="comment_id" />
+    </Key>
+    <Property Name="comment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="account_id" Type="int" />
+    <Property Name="nuskha_id" Type="int" />
+    <Property Name="comments" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="symptoms">
+    <Key>
+      <PropertyRef Name="symptoms_id" />
+    </Key>
+    <Property Name="symptoms_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="symptoms_name" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK_comments_account">
+    <End Role="account" Type="Self.account" Multiplicity="0..1" />
+    <End Role="nuskha_comment" Type="Self.nuskha_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="nuskha_comment">
+        <PropertyRef Name="account_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_comments_nuskha">
+    <End Role="nuskha" Type="Self.nuskha" Multiplicity="0..1" />
+    <End Role="nuskha_comment" Type="Self.nuskha_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nuskha">
+        <PropertyRef Name="nuskha_id" />
+      </Principal>
+      <Dependent Role="nuskha_comment">
+        <PropertyRef Name="nuskha_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_favourite_hakeem_account">
+    <End Role="account" Type="Self.account" Multiplicity="0..1" />
+    <End Role="favourite_hakeem" Type="Self.favourite_hakeem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="favourite_hakeem">
+        <PropertyRef Name="account_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_favourite_nuskha_account">
+    <End Role="account" Type="Self.account" Multiplicity="0..1" />
+    <End Role="favourite_nuskha" Type="Self.favourite_nuskha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="favourite_nuskha">
+        <PropertyRef Name="account_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_favourite_nuskha_nuskha">
+    <End Role="nuskha" Type="Self.nuskha" Multiplicity="0..1" />
+    <End Role="favourite_nuskha" Type="Self.favourite_nuskha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nuskha">
+        <PropertyRef Name="nuskha_id" />
+      </Principal>
+      <Dependent Role="favourite_nuskha">
+        <PropertyRef Name="nuskha_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_nuskha_account1">
+    <End Role="account" Type="Self.account" Multiplicity="0..1" />
+    <End Role="nuskha" Type="Self.nuskha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account">
+        <PropertyRef Name="account_id" />
+      </Principal>
+      <Dependent Role="nuskha">
+        <PropertyRef Name="account_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_nuskha_disease">
+    <End Role="disease" Type="Self.disease" Multiplicity="0..1" />
+    <End Role="nuskha" Type="Self.nuskha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="disease">
+        <PropertyRef Name="disease_id" />
+      </Principal>
+      <Dependent Role="nuskha">
+        <PropertyRef Name="disease_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_nuskha_symptoms">
+    <End Role="symptoms" Type="Self.symptoms" Multiplicity="0..1" />
+    <End Role="nuskha" Type="Self.nuskha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="symptoms">
+        <PropertyRef Name="symptoms_id" />
+      </Principal>
+      <Dependent Role="nuskha">
+        <PropertyRef Name="symptoms_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="hakeemModelStoreContainer">
+    <EntitySet Name="account" EntityType="Self.account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="disease" EntityType="Self.disease" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="favourite_hakeem" EntityType="Self.favourite_hakeem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="favourite_nuskha" EntityType="Self.favourite_nuskha" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nuskha" EntityType="Self.nuskha" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nuskha_comment" EntityType="Self.nuskha_comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="symptoms" EntityType="Self.symptoms" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_comments_account" Association="Self.FK_comments_account">
+      <End Role="account" EntitySet="account" />
+      <End Role="nuskha_comment" EntitySet="nuskha_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_comments_nuskha" Association="Self.FK_comments_nuskha">
+      <End Role="nuskha" EntitySet="nuskha" />
+      <End Role="nuskha_comment" EntitySet="nuskha_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_favourite_hakeem_account" Association="Self.FK_favourite_hakeem_account">
+      <End Role="account" EntitySet="account" />
+      <End Role="favourite_hakeem" EntitySet="favourite_hakeem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_favourite_nuskha_account" Association="Self.FK_favourite_nuskha_account">
+      <End Role="account" EntitySet="account" />
+      <End Role="favourite_nuskha" EntitySet="favourite_nuskha" />
+    </AssociationSet>
+    <AssociationSet Name="FK_favourite_nuskha_nuskha" Association="Self.FK_favourite_nuskha_nuskha">
+      <End Role="nuskha" EntitySet="nuskha" />
+      <End Role="favourite_nuskha" EntitySet="favourite_nuskha" />
+    </AssociationSet>
+    <AssociationSet Name="FK_nuskha_account1" Association="Self.FK_nuskha_account1">
+      <End Role="account" EntitySet="account" />
+      <End Role="nuskha" EntitySet="nuskha" />
+    </AssociationSet>
+    <AssociationSet Name="FK_nuskha_disease" Association="Self.FK_nuskha_disease">
+      <End Role="disease" EntitySet="disease" />
+      <End Role="nuskha" EntitySet="nuskha" />
+    </AssociationSet>
+    <AssociationSet Name="FK_nuskha_symptoms" Association="Self.FK_nuskha_symptoms">
+      <End Role="symptoms" EntitySet="symptoms" />
+      <End Role="nuskha" EntitySet="nuskha" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

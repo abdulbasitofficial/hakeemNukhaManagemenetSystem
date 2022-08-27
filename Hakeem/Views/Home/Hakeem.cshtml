@@ -1,0 +1,240 @@
+﻿@model IEnumerable<Hakeem.Models.Account>
+
+@{
+    ViewBag.Title = "Hakeem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hakeem</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+           Rated
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        
+        <td>
+            @foreach (var file in ViewBag.Hakeem)
+            {
+                if (item.ID == file.ID)
+                {
+                    if (file.count == 1)
+                    {
+                        foreach (var str in ViewBag.StarAverage)
+                        {
+                            if (str.ID == item.ID)
+                            {
+                                if (str.Stars == 1)
+                                {
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=1 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=2 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=3 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=4 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=5 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                }
+                                else if (str.Stars == 2)
+                                {
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=1 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=2 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=3 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=4 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=5 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                }
+                                else if (str.Stars== 3)
+                                {
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=1 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=2 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=3 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=4 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=5 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                }
+                                else if (str.Stars == 4)
+                                {
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=1 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=2 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=3 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=4 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=5 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                }
+                                else if (str.Stars == 5)
+                                {
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=1 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=2 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=3 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=4 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=5 })">
+                                                    <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                }
+                                else
+                                {
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=1 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=2 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=3 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=4 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("RatingHakeem","Home" ,new {id=item.ID ,star=5 })">
+                                                    <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        </td>
+       
+    </tr>
+}
+
+</table>

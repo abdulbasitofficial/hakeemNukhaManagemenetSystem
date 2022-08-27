@@ -1,0 +1,258 @@
+﻿@model IEnumerable<Hakeem.Models.Nuskha>
+@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/assets/font-awesome.min.css" rel="stylesheet" />
+<section id="team" class="team section-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+              
+                String img64 = Convert.ToBase64String(item.Imge);
+                String img64Url = string.Format("data:image/" + item.Type + ";base64,{0}", img64);
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member">
+                        <div class="pic">
+                            <img src="@img64Url" class="img-fluid" alt="" style="width:350px;height:300px;">
+                        </div>
+                        <br /><br /><br /><br />
+                        <a href="@Url.Action("Details","Home",new { id = item.ID})">
+                            <div class="member-info">
+                                @foreach (var file in ViewBag.User)
+                                {
+                                    if (item.HakeemID == file.ID)
+                                    {
+                                        <h4 align="center"> @file.Name</h4>
+                                    }
+
+                                }
+                                <h4>Nuskha Name: @item.Name</h4>
+                                <h4>Disease: @item.DiseaseName</h4>
+
+                                <span><b>Sypmtoms:</b> @item.Symptoms</span>
+                                <span><b>Ingredients: </b>@item.Ingredients</span>
+                                <span><b>Description:</b> @item.Description</span>
+                                <br />
+                                <div class="social" style="font-size:19px;font-weight:bold">
+
+                                    @foreach (var list in ViewBag.StartAverage)
+                                    {
+                                        if (list.ID == item.ID)
+                                        {
+
+                                            if (list.Stars == 0)
+                                            {
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            @{
+                                                                float stars = list.StarsNumber / list.TotalUsers;
+                                                                @stars
+                                                            }
+                                                            &nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            &nbsp;
+                                                            (@list.TotalUsers)
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            }
+                                            else if (list.Stars == 1)
+                                            {
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            @{
+                                                                float stars = list.StarsNumber / list.TotalUsers;
+                                                                @stars
+                                                            }
+                                                            &nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            &nbsp;
+                                                            (@list.TotalUsers)
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            }
+                                            else if (list.Stars == 2)
+                                            {
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            @{
+                                                                float stars = list.StarsNumber / list.TotalUsers;
+                                                                @stars
+                                                            }
+                                                            &nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            &nbsp;
+                                                            (@list.TotalUsers)
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            }
+                                            else if (list.Stars == 3)
+                                            {
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            @{
+                                                                float stars = list.StarsNumber / list.TotalUsers;
+
+                                                                @stars
+                                                            }
+                                                            &nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            &nbsp;
+                                                            (@list.TotalUsers)
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            }
+                                            else if (list.Stars == 4)
+                                            {
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            @{
+                                                                float stars = list.StarsNumber / list.TotalUsers;
+                                                                @stars
+                                                            }
+                                                            &nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Bstar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            &nbsp;
+                                                            (@list.TotalUsers)
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            }
+                                            else if (list.Stars == 5)
+                                            {
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            @{
+                                                                float stars = list.StarsNumber / list.TotalUsers;
+                                                                @stars
+                                                            }
+                                                            &nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="~/assets/Ystar.png" style="width:20px;height:20px;" />
+                                                        </td>
+                                                        <td>
+                                                            &nbsp;
+                                                            (@list.TotalUsers)
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            }
+                                        }
+
+                                    }
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            
+            }
+            </div>
+
+    </div>
+</section><!-- End Team Section -->

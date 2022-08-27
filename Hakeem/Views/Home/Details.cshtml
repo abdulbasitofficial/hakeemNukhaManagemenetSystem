@@ -1,0 +1,279 @@
+﻿@model Hakeem.Models.Nuskha
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <section id="team" class="team section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                @{
+                    String img64 = Convert.ToBase64String(Model.Imge);
+                    String img64Url = string.Format("data:image/" + Model.Type + ";base64,{0}", img64);
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="member">
+                            <div class="pic"><img src="@img64Url" class="img-fluid" alt="" style="width:350px;height:300px;"></div>
+                            <div class="member-info">
+                                @foreach (var file in ViewBag.User)
+                                {
+                                    if (Model.HakeemID == file.ID)
+                                    {
+                                        <h4 align="center"> @file.Name</h4>
+                                    }
+
+                                }
+                                <h4>Nuskha Name: @Model.Name</h4>
+                                <h4>Disease: @Model.DiseaseName</h4>
+
+                                <span><b>Sypmtoms:</b> @Model.Symptoms</span>
+                                <span><b>Ingredients: </b>@Model.Ingredients</span>
+                                <span><b>Description:</b> @Model.Description</span>
+                                <br /><br />
+                                      <div class="social">
+                                          @if (ViewBag.Rated == 1)
+                                          {
+                                              <table>
+                                                  <tr>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=1 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=2 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=3 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=4 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=5 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          }
+                                          else if (ViewBag.Rated == 2)
+                                          {
+                                              <table>
+                                                  <tr>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=1 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=2 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=3 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=4 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=5 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          }
+                                          else if (ViewBag.Rated == 3)
+                                          {
+                                              <table>
+                                                  <tr>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=1 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=2 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=3 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=4 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=5 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          }
+                                          else if (ViewBag.Rated == 4)
+                                          {
+                                              <table>
+                                                  <tr>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=1 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=2 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=3 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=4 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=5 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          }
+                                          else if (ViewBag.Rated == 5)
+                                          {
+                                              <table>
+                                                  <tr>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=1 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=2 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=3 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=4 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=5 })">
+                                                              <img src="~/assets/Ystar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          }
+                                          else
+                                          {
+                                              <table>
+                                                  <tr>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=1 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=2 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=3 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=4 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                      <td>
+                                                          <a href="@Url.Action("Rating","Home" ,new {id=Model.ID ,star=5 })">
+                                                              <img src="~/assets/Bstar.png" style="width:30px;height:30px;" />
+                                                          </a>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          }
+
+                                      </div>
+                            </div>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <form action="@Url.Action("Comments","Home")" method="post">
+
+                                        <input type="hidden" value="@Model.ID" name="id"/>
+                                        <select style="font-size:25px;" name="comments">
+                                            <option value="Excellent">Excellent</option>
+                                            <option value="Very Good">Very Good</option>
+                                            <option value="Good">Good</option>
+                                            <option value="Fair">Fair</option>
+                                            <option value="Not Satisfactory">Not Satisfactory</option>
+                                        </select>
+                                        <input type="submit" value="Leave Comment" class="btn btn-primary" />
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                }
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <h1><b>FeedBack</b></h1>
+                   @foreach ( var item in ViewBag.Comments )
+                   {
+                       foreach (var file in ViewBag.User)
+                       {
+                           if (item.AccountID==file.ID)
+                           {
+                               <table>
+                                   <tr>
+                                       <td>
+                                           <b>Name: </b>@file.Name
+                                       </td>
+                                       </tr>
+                                   <tr>
+                                       <td>
+                                           <b>Comments:</b> @item.Comments
+                                       </td>
+                                   </tr>
+                               </table>
+                           }
+                       }
+                   }
+                </div>
+                </div>
+
+
+            </div>
+    </section>

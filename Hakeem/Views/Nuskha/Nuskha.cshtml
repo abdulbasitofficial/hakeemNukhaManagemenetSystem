@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Hakeem.Models.Nuskha>
+
+@{
+    ViewBag.Title = "Nuskha";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/assets/css/style.css" rel="stylesheet" />
+<br />
+<h2>Nuskha</h2>
+
+<p>
+    @Html.ActionLink("Add New", "AddNuskha")
+</p>
+@if (Model.Count() > 0)
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiseaseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Symptoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ingredients)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+
+
+            <th>
+                Image
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            String img64 = Convert.ToBase64String(item.Imge);
+            String img64Url = string.Format("data:image/" + item.Type + ";base64,{0}", img64);
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiseaseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Symptoms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ingredients)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+
+        <td>
+            <img src="@img64Url" style="width:70px;height:70px;" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+        </td>
+    </tr>
+        }
+
+    </table>
+}
+else
+{
+    <h3>Empty Record</h3>
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a57011d2499748b38d1353dfec3110f1" Name="Diagram1">
+        <EntityTypeShape EntityType="hakeemModel.account" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hakeemModel.disease" Width="1.5" PointX="3.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hakeemModel.favourite_hakeem" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hakeemModel.favourite_nuskha" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hakeemModel.nuskha" Width="1.5" PointX="6" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hakeemModel.nuskha_comment" Width="1.5" PointX="8.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hakeemModel.symptom" Width="1.5" PointX="3.75" PointY="12.125" IsExpanded="true" />
+        <AssociationConnector Association="hakeemModel.FK_comments_account" ManuallyRouted="false" />
+        <AssociationConnector Association="hakeemModel.FK_favourite_hakeem_account" ManuallyRouted="false" />
+        <AssociationConnector Association="hakeemModel.FK_favourite_nuskha_account" ManuallyRouted="false" />
+        <AssociationConnector Association="hakeemModel.FK_nuskha_account1" ManuallyRouted="false" />
+        <AssociationConnector Association="hakeemModel.FK_nuskha_disease" ManuallyRouted="false" />
+        <AssociationConnector Association="hakeemModel.FK_favourite_nuskha_nuskha" ManuallyRouted="false" />
+        <AssociationConnector Association="hakeemModel.FK_comments_nuskha" ManuallyRouted="false" />
+        <AssociationConnector Association="hakeemModel.FK_nuskha_symptoms" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

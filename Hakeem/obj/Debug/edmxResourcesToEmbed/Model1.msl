@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hakeemModelStoreContainer" CdmEntityContainer="hakeemEntities">
+    <EntitySetMapping Name="accounts">
+      <EntityTypeMapping TypeName="hakeemModel.account">
+        <MappingFragment StoreEntitySet="account">
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="account_name" ColumnName="account_name" />
+          <ScalarProperty Name="account_email" ColumnName="account_email" />
+          <ScalarProperty Name="account_passeord" ColumnName="account_passeord" />
+          <ScalarProperty Name="account_type" ColumnName="account_type" />
+          <ScalarProperty Name="account_insertion" ColumnName="account_insertion" />
+          <ScalarProperty Name="axxount_gender" ColumnName="axxount_gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="diseases">
+      <EntityTypeMapping TypeName="hakeemModel.disease">
+        <MappingFragment StoreEntitySet="disease">
+          <ScalarProperty Name="disease_id" ColumnName="disease_id" />
+          <ScalarProperty Name="disease_name" ColumnName="disease_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="favourite_hakeem">
+      <EntityTypeMapping TypeName="hakeemModel.favourite_hakeem">
+        <MappingFragment StoreEntitySet="favourite_hakeem">
+          <ScalarProperty Name="favourite_id" ColumnName="favourite_id" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="hakeem_id" ColumnName="hakeem_id" />
+          <ScalarProperty Name="stars" ColumnName="stars" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="favourite_nuskha">
+      <EntityTypeMapping TypeName="hakeemModel.favourite_nuskha">
+        <MappingFragment StoreEntitySet="favourite_nuskha">
+          <ScalarProperty Name="favourite_id" ColumnName="favourite_id" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="nuskha_id" ColumnName="nuskha_id" />
+          <ScalarProperty Name="stars" ColumnName="stars" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nuskhas">
+      <EntityTypeMapping TypeName="hakeemModel.nuskha">
+        <MappingFragment StoreEntitySet="nuskha">
+          <ScalarProperty Name="nuskha_id" ColumnName="nuskha_id" />
+          <ScalarProperty Name="nuskha_name" ColumnName="nuskha_name" />
+          <ScalarProperty Name="nuskha_description" ColumnName="nuskha_description" />
+          <ScalarProperty Name="nuskha_image" ColumnName="nuskha_image" />
+          <ScalarProperty Name="nuskha_imgtype" ColumnName="nuskha_imgtype" />
+          <ScalarProperty Name="nuskha_ingredients" ColumnName="nuskha_ingredients" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="disease_id" ColumnName="disease_id" />
+          <ScalarProperty Name="symptoms_id" ColumnName="symptoms_id" />
+          <ScalarProperty Name="symptoms" ColumnName="symptoms" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nuskha_comment">
+      <EntityTypeMapping TypeName="hakeemModel.nuskha_comment">
+        <MappingFragment StoreEntitySet="nuskha_comment">
+          <ScalarProperty Name="comment_id" ColumnName="comment_id" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="nuskha_id" ColumnName="nuskha_id" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="symptoms">
+      <EntityTypeMapping TypeName="hakeemModel.symptom">
+        <MappingFragment StoreEntitySet="symptoms">
+          <ScalarProperty Name="symptoms_id" ColumnName="symptoms_id" />
+          <ScalarProperty Name="symptoms_name" ColumnName="symptoms_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
